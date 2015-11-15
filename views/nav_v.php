@@ -1,6 +1,6 @@
 <nav>
     <div class="logo_nav">
-        <a href="<?=BASE_URL?>index.php/main"><img src="assets/img/logo.png" alt="logo"/></a>
+        <a href="<?=BASE_URL?>index.php"><img src="<?=BASE_URL?>assets/img/logo.png" alt="logo"/></a>
     </div>
     <div class="zone_onglets">
         <table>

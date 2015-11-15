@@ -16,5 +16,9 @@ class Main{
 
     public function connexion(){
 
+        include("views/head_v.php");
+        include("views/nav_v.php");
+        include("views/connexion_form_v.php");
+        include("views/foot_v.php");
     }
 }
