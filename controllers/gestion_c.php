@@ -84,7 +84,12 @@ class Gestion{
     }
 
     public function listeVideo(){
-
+        $this->checkDroit();
+        include("views/gestion/head_v.php");
+        include("views/gestion/nav_v.php");
+        $video = $this->instanceOfVideo->getAllVideo();
+        include("views/gestion/liste_video_v.php");
+        include("views/gestion/foot_v.php");
     }
     //DONE
     public function ajouterVideo(){
@@ -99,7 +104,13 @@ class Gestion{
     //TODO MUST be improve
     public function validFormAjouterVideo(){
 
-
+        $data['titre'] = htmlentities($_POST['titre']);
+        $data['link'] = htmlentities($_POST['link']);
+        $data['date'] = htmlentities($_POST['date']);
+        $data['categorie'] = htmlentities($_POST['categorie']);
+        $data['description'] = htmlentities($_POST['description']);
+        $this->instanceOfVideo->insert($data);
+        header("location: ".BASE_URL."index.php/gestion/listeVideo");
     }
 }
 
