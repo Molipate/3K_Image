@@ -11,9 +11,9 @@
                 <td class="onglet"><a href="<?=BASE_URL?>index.php/main/contact">Nous contacter</a></td>
                 <td class="onglet"><a href="<?=BASE_URL?>index.php/main/rejoindre">Nous rejoindre</a></td>
                 <?php if($_SESSION['connexion'] != "true"){
-                    echo '<td class="onglet"><a href="'.BASE_URL."index.php/main/connexion".'">Connexion</a></td>';
+                    echo '<td class="onglet"><a href="'.BASE_URL."index.php/main/connexion".'">Administration</a></td>';
                 } else if($_SESSION['connexion'] == "true"){ ?>
-                    <td class="onglet"><a href="<?=BASE_URL?>index.php/video/gestion">Gestion du site</a></td>
+                    <td class="onglet"><a href="<?=BASE_URL?>index.php/gestion/index">Gestion du site</a></td>
                     <td class="onglet"><a href="<?=BASE_URL?>index.php/main/deconnexion">Déconnexion</a></td>
                 <?php }?>
             </tr>
