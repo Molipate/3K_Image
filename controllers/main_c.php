@@ -13,39 +13,37 @@ class Main{
         include("views/index_v.php");
         include("views/foot_v.php");
     }
-
+    //DONE
     public function connexion(){
-
-        include("views/head_v.php");
-        include("views/nav_v.php");
-        include("views/connexion_form_v.php");
-        include("views/foot_v.php");
+        include("views/form_connexion_v.php");
     }
-
     //TODO: check in database for login and password
-    public function valid_connexion(){
+    public function validFormConnexion(){
 
         $data['id'] = htmlentities($_POST['id']);
         $data['pwd'] = htmlentities($_POST['pwd']);
 
-        if($data['id'] == "root" && $data['pwd'] == "root"){
+        $error = array();
+        if($data['id'] != "root")
+            $error['id'] = "Mauvais identifiant !";
+        if($data['pwd'] != "root")
+            $error['pwd'] = "Mauvais mot de passe !";
+
+        if(empty($error)){
             $_SESSION['connexion'] = "true";
             header("location: ".BASE_URL."index.php/main/index");
         }
         else{
-
-            $error = "Identifiants incorrectes !";
-            include("views/head_v.php");
-            include("views/nav_v.php");
-            include("views/connexion_form_v.php");
-            include("views/foot_v.php");
+            include("views/form_connexion_v.php");
         }
     }
-
+    //DONE
     public function deconnexion(){
         $_SESSION['connexion'] = "false";
-        header("location: ".BASE_URL."index.php/main/index");
+        header("location: ".BASE_URL."index.php");
     }
+
+    //TODO : All method for the asso / meet us / etc ...
 }
 
 ?>

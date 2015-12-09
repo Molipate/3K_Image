@@ -19,8 +19,8 @@ class Admin{
         }
     }
     //TODO : check connexion
-    public function index(){
-        $this->checkDroit();
+    public function connexion(){
+
         include("views/gestion/head_v.php");
         include("views/gestion/nav_v.php");
         include("views/gestion/index_v.php");
