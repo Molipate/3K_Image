@@ -1,6 +1,6 @@
 <?php
 
-class Gestion{
+class Admin{
 
     private $instanceOfVideo;
     private $instanceOfCategorie;
@@ -12,19 +12,19 @@ class Gestion{
         $this->instanceOfVideo = new Video_m();
         $this->instanceOfCategorie = new Categorie_m();
     }
-    //TODO : welcome panel ?
+    //DONE
+    public function checkDroit(){
+        if($_SESSION['connexion'] != "true"){
+            header("location: ".BASE_URL."index.php");
+        }
+    }
+    //TODO : check connexion
     public function index(){
         $this->checkDroit();
         include("views/gestion/head_v.php");
         include("views/gestion/nav_v.php");
         include("views/gestion/index_v.php");
         include("views/gestion/foot_v.php");
-    }
-    //DONE
-    public function checkDroit(){
-        if($_SESSION['connexion'] != "true"){
-            header("location: ".BASE_URL."index.php");
-        }
     }
     //DONE
     public function listeCategorie(){
