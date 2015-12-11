@@ -1,6 +1,8 @@
 <?php
 if($data == NULL){
-    echo "Vous devez ajouter au moins une catégorie avant d'ajouter votre première vidéo";
+    echo '<br/><br><br><br><small class="error large-text-center" style="font-size: 25px;">
+        Rien à afficher, ajoutez des catégories, puis des vidéos ...
+</small>';
 }
 else { ?>
     <h1 class="large-text-center">Ajouter une vidéo</h1>
