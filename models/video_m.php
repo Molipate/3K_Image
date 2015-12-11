@@ -12,7 +12,7 @@ class Video_m{
 
     public function getAllVideo(){
         $cmd = $this->base->prepare("SELECT v.titreVideo, v.linkVideo, v.description,
-          v.dateSortie, v.categorieVideo FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie");
+          v.dateSortie, c.nomCategorie FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie");
         $cmd->execute();
         return $cmd->fetchAll();
     }
