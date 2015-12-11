@@ -1,7 +1,7 @@
 <?php
 if($data == NULL){
     echo '<br/><br><br><br><small class="error large-text-center" style="font-size: 25px;">
-        Rien à afficher, ajoutez des catégories, puis des vidéos ...
+        Pour ajouter une vidéo, vous devez en premier lieu ajouter une catégorie ...
 </small>';
 }
 else { ?>
