@@ -2,7 +2,9 @@
 
 <?php
     if(empty($categorie)){
-        echo '<small class="error large-text-center" style="font-size: 25px;">Rien à afficher</small>';
+        echo '<br/><br><br><br><small class="error large-text-center" style="font-size: 25px;">
+Rien à afficher, ajoutez des catégories, puis des vidéos ...
+</small>';
     }
     else{ ?>
 
