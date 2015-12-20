@@ -17,12 +17,12 @@ Rien à afficher, ajoutez des catégories, puis des vidéos ...
         }
 
         img{
-            height: 40px;
+            height: 80px;
+            width: auto;
         }
     </style>
-
-    <div class="row">
-        <div class="large-5 lare-centered columns">
+        <div class="row">
+        <div class="large-4 lare-centered columns">
             <table>
                 <thead>
                     <tr>
@@ -34,15 +34,23 @@ Rien à afficher, ajoutez des catégories, puis des vidéos ...
                     <?php
                     foreach($categorie as $c){
                         echo '<tr><td>'.$c['nomCategorie'].'</td>
-                            <td><img src="'.BASE_URL."assets/img/".$c['link_image'].'"></td>
-                            <td><a href="#"><img src="'.BASE_URL."assets/img/edit.png".'"></a></td>
-                            <td><a href="#"><img src="'.BASE_URL."assets/img/supp.png".'"></a></td></tr>';
+                            <td><img src="'.BASE_IMG.$c['link_image'].'"></td>
+                            <td>
+                                <a href="'.BASE_URL.'index.php/admin/modifierCategorie/'.$c['idCategorie'].'">
+                                    <img src="'.BASE_IMG."edit.png".'">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="'.BASE_URL.'index.php/admin/supprCategorie/'.$c['idCategorie'].'">
+                                    <img src="'.BASE_IMG."supp.png".'">
+                                </a>
+                            </td></tr>';
                     }
                     ?>
                 </tbody>
             </table>
         </div>
-        <div class="large-7 lare-centered columns">
+        <div class="large-8 lare-centered columns">
             <?php if(!empty($video)){ ?>
 
                 <table style="horiz-align: center;">
@@ -57,11 +65,23 @@ Rien à afficher, ajoutez des catégories, puis des vidéos ...
                     <?php
                     foreach($video as $v){
                         echo '<tr><td>'.$v['titreVideo'].'</td>
-                            <td>'.$v['nomCategorie'].'</td>
-                            <td>'.$v['linkVideo'].'</td>
-                            <td><a href="#"><img src="'.BASE_URL."assets/img/view.png".'"></a></td>
-                            <td><a href="#"><img src="'.BASE_URL."assets/img/edit.png".'"></a></td>
-                            <td><a href="#"><img src="'.BASE_URL."assets/img/supp.png".'"></a></td></tr>';
+                            <td><img src="'.BASE_IMG.$v['link_image'].'"/></td>
+                            <td>'.$this->makeVideo($v['linkVideo']).'</td>
+                            <td>
+                                <a href="'.BASE_URL.'index.php/admin/viewVideo/'.$v['idVideo'].'">
+                                    <img src="'.BASE_URL."assets/img/view.png".'">
+                                    </a>
+                            </td>
+                            <td>
+                                <a href="'.BASE_URL.'index.php/admin/modifierVideo/'.$v['idVideo'].'">
+                                    <img src="'.BASE_URL."assets/img/edit.png".'">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="'.BASE_URL.'index.php/admin/supprVideo/'.$v['idVideo'].'">
+                                    <img src="'.BASE_URL."assets/img/supp.png".'">
+                                </a>
+                            </td></tr>';
                     }
                     ?>
                     </tbody>

@@ -1,3 +1,4 @@
+<h1 class="large-text-center">Ajouter une vidéo</h1>
 <?php
 if($data == NULL){
     echo '<br/><br><br><br><small class="error large-text-center" style="font-size: 25px;">
@@ -5,7 +6,6 @@ if($data == NULL){
 </small>';
 }
 else { ?>
-    <h1 class="large-text-center">Ajouter une vidéo</h1>
     <div class="row">
         <div class="panel">
             <form action="<?=BASE_URL?>index.php/admin/validFormAjouterVideo" method="post">

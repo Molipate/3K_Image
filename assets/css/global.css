@@ -9,8 +9,10 @@ body {
 
 a { color: blue; text-decoration: none; }
 a:visited { color: blue;  }
-
-nav, table, tr, td {
+tr, img{
+    height: 40px;
+}
+table, tr, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
@@ -27,7 +29,6 @@ nav .zone_onglets{
     position: absolute;
     right: 10%;
     top: 250px;
-
 }
 
 label {
@@ -38,10 +39,18 @@ label {
 
 .admin {
     position: absolute;
-    bottom: 0px;
-    right: 0px;
+    top: 10px;
+    right: 10px;
     display: inline-block;
     background-color: white;
+}
+
+.onglet_admin{
+    background-image: url("../img/background3.jpg");
+    color: white;
+    text-decoration: none;
+    padding: 0px 10px;
+    height: 50px;
 }
 
 .onglet{
@@ -58,4 +67,17 @@ label {
     left: 10%;
     right: 10%;
     background-color: white;
+}
+
+.video_head p{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.video_body p{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 60%;
+    right: 0px;
 }

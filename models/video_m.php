@@ -11,8 +11,9 @@ class Video_m{
     }
 
     public function getAllVideo(){
-        $cmd = $this->base->prepare("SELECT v.titreVideo, v.linkVideo, v.description,
-          v.dateSortie, c.nomCategorie FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie");
+        $cmd = $this->base->prepare("SELECT v.idVideo, v.titreVideo, v.linkVideo, v.description,
+          v.dateSortie, c.idCategorie, c.nomCategorie, c.link_image
+          FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie");
         $cmd->execute();
         return $cmd->fetchAll();
     }
@@ -25,6 +26,16 @@ class Video_m{
         $cmd->bindValue(3, $data['description']);
         $cmd->bindValue(4, $data['date']);
         $cmd->bindValue(5, $data['categorie']);
+        $cmd->execute();
+    }
+
+    public function update($data){
+
+    }
+
+    public function delete($id){
+        $cmd = $this->base->prepare("DELETE FROM video WHERE idVideo =?");
+        $cmd->bindValue(1, $id);
         $cmd->execute();
     }
 

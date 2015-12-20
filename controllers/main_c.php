@@ -7,11 +7,9 @@ class Main{
     }
 
     public function index(){
-
-        include("views/head_v.php");
-        include("views/nav_v.php");
+        #include("views/head_v.php");
+        #include("views/nav_v.php");
         include("views/index_v.php");
-        include("views/foot_v.php");
     }
     //DONE
     public function connexion(){
@@ -31,7 +29,7 @@ class Main{
 
         if(empty($error)){
             $_SESSION['connexion'] = "true";
-            header("location: ".BASE_URL."index.php/main/index");
+            header("location: ".BASE_URL."index.php/admin/index");
         }
         else{
             include("views/form_connexion_v.php");
@@ -44,6 +42,12 @@ class Main{
     }
 
     //TODO : All method for the asso / meet us / etc ...
+    public function association(){
+        include("views/head_v.php");
+        include("views/nav_v.php");
+        include("views/association_v.php");
+        include("views/foot_v.php");
+    }
 }
 
 ?>

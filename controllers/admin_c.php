@@ -29,6 +29,14 @@ class Admin{
         include("views/admin/index_v.php");
         include("views/admin/foot_v.php");
     }
+
+    public function makeVideo($link){
+        if(substr($link, 12, 7) == "youtube"){
+            $id = substr($link, 32);
+            return '<iframe width="420" height="315" src="https://www.youtube.com/embed/'.$id.'
+                        " frameborder="0" allowfullscreen></iframe>';
+        }
+    }
     //DONE
     public function ajouterCategorie(){
         $this->checkDroit();
@@ -37,7 +45,7 @@ class Admin{
         include("views/admin/form/form_ajouter_categorie.php");
         include("views/admin/foot_v.php");
     }
-
+    //WORKS
     public function validFormAjouterCategorie(){
         $this->checkDroit();
         $errors = array();
@@ -49,10 +57,10 @@ class Admin{
 
         if(empty($_FILES['image']['name']))
             $errors['image'] = "Veuillez choisir une image";
-        else{
+        /*else{
             $file_extension = strtolower(substr(strrchr($_FILES['icone']['name'], '.'), 1));
             $extension_allowed = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
-        }
+        }*/
 
         $data['titre'] = htmlentities($_POST['titre']);
         $data['image'] = htmlentities($_FILES['image']['name']);
@@ -84,7 +92,7 @@ class Admin{
         include("views/admin/form/form_ajouter_video.php");
         include("views/admin/foot_v.php");
     }
-
+    //WORKS
     public function validFormAjouterVideo(){
 
         $data['titre'] = htmlentities($_POST['titre']);
@@ -93,6 +101,38 @@ class Admin{
         $data['categorie'] = htmlentities($_POST['categorie']);
         $data['description'] = htmlentities($_POST['description']);
         $this->instanceOfVideo->insert($data);
+        header("location: ".BASE_URL."index.php/admin/index");
+    }
+    //DONE
+    public function modifierCategorie($id){
+        $this->checkDroit();
+
+        $data = $this->instanceOfCategorie->getCategorie($id);
+
+        include("views/admin/head_v.php");
+        include("views/admin/nav_v.php");
+        include("views/admin/form/form_modifier_categorie.php");
+        include("views/admin/foot_v.php");
+    }
+
+    public function validFormModifierCategorie(){
+
+    }
+
+    public function modifierVideo(){
+
+    }
+
+    public function validFormModifierVideo(){
+
+    }
+
+    public function supprCategorie(){
+
+    }
+    //DONE
+    public function supprVideo($id){
+        $this->instanceOfVideo->delete($id);
         header("location: ".BASE_URL."index.php/admin/index");
     }
 }

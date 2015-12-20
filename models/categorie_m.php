@@ -16,6 +16,14 @@ class Categorie_m{
         return $cmd->fetchAll();
     }
 
+    public function getCategorie($id){
+        $cmd = $this->base->prepare("SELECT idCategorie, nomCategorie, link_image
+          FROM categorie WHERE idCategorie=?");
+        $cmd->bindValue(1, $id);
+        $cmd->execute();
+        return $cmd->fetch();
+    }
+
     public function insert($data){
         $cmd = $this->base->prepare("INSERT INTO categorie (nomCategorie, link_image) VALUES (?, ?)");
         $cmd->bindValue(1, $data['titre']);

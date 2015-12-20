@@ -1,0 +1,62 @@
+.animation {
+    position: relative;
+    left: 200px;
+    top: 0px;
+    animation-name: animation_logo;
+    animation-duration: 4s;
+}
+
+@-webkit-keyframes animation {
+    0%   {left:0px; top:0px;}
+    25%  {left:200px; top:0px;}
+    50%  {left:200px; top:200px;}
+    75%  {left:0px; top:200px;}
+    100% {left:200px; top:0px;}
+}
+
+@keyframes animation {
+    0%   {left:0px; top:0px;}
+    25%  {left:200px; top:0px;}
+    50%  {left:200px; top:200px;}
+    75%  {left:0px; top:200px;}
+    100% {left:200px; top:0px;}
+}
+
+@font-face {
+    font-family: font;
+    src: url("Quicksand_Book.otf");
+}
+
+body{
+    background-image: url("../img/background3.jpg");
+    font-family: font;
+}
+
+img{
+    width: 400px;
+}
+
+.part1{
+    position: absolute;
+    top: 120px;
+    left: 35%;
+}
+
+.part2{
+    position: absolute;
+    top: 120px;
+    left: 35%;
+}
+
+.part3{
+    position: absolute;
+    top: 120px;
+    left: 35%;
+}
+
+.part4{
+    position: absolute;
+    top: 500px;
+    text-align: center;
+    left: 35%;
+}
