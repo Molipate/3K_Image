@@ -3,7 +3,7 @@
     src: url("Quicksand_Book.otf");
 }
 body {
-    background-image: url("../img/background3.jpg");
+    background-image: url("../img/background/3.jpg");
     font-family: font;
 }
 
@@ -46,7 +46,7 @@ label {
 }
 
 .onglet_admin{
-    background-image: url("../img/background3.jpg");
+    background-image: url("../img/background/3.jpg");
     color: white;
     text-decoration: none;
     padding: 0px 10px;
