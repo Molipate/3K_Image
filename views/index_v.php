@@ -6,9 +6,7 @@
     </head>
     <body>
 
-        <div class="logo">
-            <img src="<?=BASE_IMG?>logo.png" alt="">
-        </div>
+        <img src="<?= BASE_IMG ?>logo.png" alt="">
 
     </body>
 </html>

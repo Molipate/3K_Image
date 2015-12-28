@@ -8,31 +8,8 @@ body{
     font-family: font;
 }
 
-img{
+img {
+    position: absolute;
+    left: 30%;
     width: 40%;
-}
-
-.part1{
-    position: absolute;
-    top: 120px;
-    left: 35%;
-}
-
-.part2{
-    position: absolute;
-    top: 120px;
-    left: 35%;
-}
-
-.part3{
-    position: absolute;
-    top: 120px;
-    left: 35%;
-}
-
-.part4{
-    position: absolute;
-    top: 500px;
-    text-align: center;
-    left: 35%;
 }
