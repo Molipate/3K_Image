@@ -1,0 +1,15 @@
+<svg height="500" width="450">
+
+            <a xlink:href="<?=BASE_URL?>index.php/main/connexion">
+                <polygon points="0,390,225,0,250,132" style="fill:lime;stroke:purple;stroke-width:1" ></polygon>
+            </a>
+
+            <a xlink:href="<?=BASE_URL?>index.php/video/listeCategorie">
+                <polygon points="225,0,450,390,292,345" style="fill:lime;stroke:purple;stroke-width:1" ></polygon>
+            </a>
+
+            <a xlink:href="<?=BASE_URL?>index.php/main/association">
+                <polygon points="0,390,300,390,292,345,100,288" style="fill:lime;stroke:purple;stroke-width:1" ></polygon>
+            </a>
+
+        </svg>

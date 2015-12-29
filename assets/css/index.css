@@ -3,13 +3,26 @@
     src: url("Quicksand_Book.otf");
 }
 
+html {
+    display: flex;
+    min-height: 100%;
+}
+
+
 body{
     background-image: url("../img/background/7.jpg");
     font-family: font;
+    margin: auto;
 }
 
-img {
-    position: absolute;
-    left: 30%;
-    width: 40%;
+
+svg {
+    display: block;
+    margin: auto;
+}
+
+polygon {
+    fill:white;
+    stroke:black;
+    stroke-width:1;
 }
