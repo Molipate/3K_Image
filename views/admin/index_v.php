@@ -36,12 +36,12 @@ Rien à afficher, ajoutez des catégories, puis des vidéos ...
                         echo '<tr><td>'.$c['nomCategorie'].'</td>
                             <td><img src="'.BASE_IMG.$c['link_image'].'"></td>
                             <td>
-                                <a href="'.BASE_URL.'index.php/admin/modifierCategorie/'.$c['idCategorie'].'">
+                                <a href="'.BASE_URL.'index_video_v.php/admin/modifierCategorie/'.$c['idCategorie'].'">
                                     <img src="'.BASE_IMG."edit.png".'">
                                 </a>
                             </td>
                             <td>
-                                <a href="'.BASE_URL.'index.php/admin/supprCategorie/'.$c['idCategorie'].'">
+                                <a href="'.BASE_URL.'index_video_v.php/admin/supprCategorie/'.$c['idCategorie'].'">
                                     <img src="'.BASE_IMG."supp.png".'">
                                 </a>
                             </td></tr>';
@@ -68,17 +68,17 @@ Rien à afficher, ajoutez des catégories, puis des vidéos ...
                             <td><img src="'.BASE_IMG.$v['link_image'].'"/></td>
                             <td>'.$this->makeVideo($v['linkVideo']).'</td>
                             <td>
-                                <a href="'.BASE_URL.'index.php/admin/viewVideo/'.$v['idVideo'].'">
+                                <a href="'.BASE_URL.'index_video_v.php/admin/viewVideo/'.$v['idVideo'].'">
                                     <img src="'.BASE_URL."assets/img/view.png".'">
                                     </a>
                             </td>
                             <td>
-                                <a href="'.BASE_URL.'index.php/admin/modifierVideo/'.$v['idVideo'].'">
+                                <a href="'.BASE_URL.'index_video_v.php/admin/modifierVideo/'.$v['idVideo'].'">
                                     <img src="'.BASE_URL."assets/img/edit.png".'">
                                 </a>
                             </td>
                             <td>
-                                <a href="'.BASE_URL.'index.php/admin/supprVideo/'.$v['idVideo'].'">
+                                <a href="'.BASE_URL.'index_video_v.php/admin/supprVideo/'.$v['idVideo'].'">
                                     <img src="'.BASE_URL."assets/img/supp.png".'">
                                 </a>
                             </td></tr>';

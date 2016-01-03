@@ -20,14 +20,17 @@ class Video{
         }
     }
 
-    public function listeCategorie(){
+    public function index(){
 
         $categorie = $this->instanceOfCategorie->getAllCategorie();
 
         include("views/head_v.php");
         include("views/nav_v.php");
-        include("views/video_categorie_v.php");
+        include("views/video/index_video_v.php");
         include("views/foot_v.php");
+    }
+
+    public function listeCategorie(){
 
     }
 

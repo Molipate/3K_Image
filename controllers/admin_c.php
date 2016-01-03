@@ -15,7 +15,7 @@ class Admin{
     //DONE
     public function checkDroit(){
         if($_SESSION['connexion'] != "true")
-            header("location: ".BASE_URL."index.php");
+            header("location: ".BASE_URL."index_video_v.php");
     }
     //DONE
     public function index(){
@@ -75,7 +75,7 @@ class Admin{
             $target = "assets/img/".$data['image'];
             if(move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
                 $this->instanceOfCategorie->insert($data);
-                header("location: " . BASE_URL . "index.php/admin/index");
+                header("location: " . BASE_URL . "index_video_v.php/admin/index");
             }
             else{
                 echo "Failed to move file";
@@ -101,7 +101,7 @@ class Admin{
         $data['categorie'] = htmlentities($_POST['categorie']);
         $data['description'] = htmlentities($_POST['description']);
         $this->instanceOfVideo->insert($data);
-        header("location: ".BASE_URL."index.php/admin/index");
+        header("location: ".BASE_URL."index_video_v.php/admin/index");
     }
     //DONE
     public function modifierCategorie($id){
@@ -133,7 +133,7 @@ class Admin{
     //DONE
     public function supprVideo($id){
         $this->instanceOfVideo->delete($id);
-        header("location: ".BASE_URL."index.php/admin/index");
+        header("location: ".BASE_URL."index_video_v.php/admin/index");
     }
 }
 
