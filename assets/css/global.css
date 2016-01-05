@@ -69,15 +69,33 @@ label {
     background-color: white;
 }
 
+.categorie img{
+    position: relative;
+    width: 33%;
+    height: auto;
+}
+
+.liste_video a{
+    color: black;
+}
+
 .video_head p{
     display: inline-block;
     vertical-align: top;
 }
 
 .video_body p{
-    position: relative;
+    position: absolute;
     display: inline-block;
     vertical-align: top;
-    width: 60%;
-    right: 0px;
+    width: 45%;
+    height: 250px;
+    left: 550px;
+    word-wrap: break-word;
+    overflow: hidden;
 }
+
+
+.video_video {
+}
+

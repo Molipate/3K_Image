@@ -14,7 +14,7 @@
                 <text x="150" y="150" fill="black">Nos vidéos !</text>
             </a>
 
-            <a xlink:href="<?=BASE_URL?>index.php/video/listeCategorie">
+            <a xlink:href="<?=BASE_URL?>index.php/main/contact">
                 <title>Contactez nous !</title>
                 <polygon points="225,0,298,341,450,390"></polygon>
                 <text x="310" y="320">Contacts !</text>

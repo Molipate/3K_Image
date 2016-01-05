@@ -30,10 +30,10 @@ class Admin{
         include("views/admin/foot_v.php");
     }
 
-    public function makeVideo($link){
+    public function makeVideo($link, $w){
         if(substr($link, 12, 7) == "youtube"){
             $id = substr($link, 32);
-            return '<iframe width="420" height="315" src="https://www.youtube.com/embed/'.$id.'
+            return '<iframe width="'.$w.'" height="'.$w * (9 / 16).'" src="https://www.youtube.com/embed/'.$id.'
                         " frameborder="0" allowfullscreen></iframe>';
         }
     }
@@ -75,7 +75,7 @@ class Admin{
             $target = "assets/img/".$data['image'];
             if(move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
                 $this->instanceOfCategorie->insert($data);
-                header("location: " . BASE_URL . "index_video_v.php/admin/index");
+                header("location: " . BASE_URL . "index.php/admin/index");
             }
             else{
                 echo "Failed to move file";
@@ -101,7 +101,7 @@ class Admin{
         $data['categorie'] = htmlentities($_POST['categorie']);
         $data['description'] = htmlentities($_POST['description']);
         $this->instanceOfVideo->insert($data);
-        header("location: ".BASE_URL."index_video_v.php/admin/index");
+        header("location: ".BASE_URL."index.php/admin/index");
     }
     //DONE
     public function modifierCategorie($id){
@@ -127,13 +127,14 @@ class Admin{
 
     }
 
-    public function supprCategorie(){
-
+    public function supprCategorie($id){
+        $this->instanceOfCategorie->delete($id);
+        header("location: ".BASE_URL."index.php/admin/index");
     }
     //DONE
     public function supprVideo($id){
         $this->instanceOfVideo->delete($id);
-        header("location: ".BASE_URL."index_video_v.php/admin/index");
+        header("location: ".BASE_URL."index.php/admin/index");
     }
 }
 

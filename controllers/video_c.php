@@ -12,10 +12,10 @@ class Video{
         $this->instanceOfCategorie = new Categorie_m();
     }
 
-    public function makeVideo($link){
+    public function makeVideo($link, $w){
         if(substr($link, 12, 7) == "youtube"){
             $id = substr($link, 32);
-            return '<iframe width="420" height="315" src="https://www.youtube.com/embed/'.$id.'
+            return '<iframe width="'.$w.'" height="'.$w * (9 / 16).'" src="https://www.youtube.com/embed/'.$id.'
                         " frameborder="0" allowfullscreen></iframe>';
         }
     }
@@ -30,22 +30,23 @@ class Video{
         include("views/foot_v.php");
     }
 
-    public function listeCategorie(){
+    public function categorie($id){
 
-    }
-
-    public function liste(){
-
-        $video = $this->instanceOfVideo->getAllVideo();
+        $video = $this->instanceOfVideo->getAllFromCategorie($id);
 
         include("views/head_v.php");
         include("views/nav_v.php");
-        include("views/liste_video_v.php");
+        include("views/video/liste_video_v.php");
         include("views/foot_v.php");
     }
 
     public function video($id){
+        $v = $this->instanceOfVideo->getVideo($id);
 
+        include("views/head_v.php");
+        include("views/nav_v.php");
+        include("views/video/video_v.php");
+        include("views/foot_v.php");
     }
 }
 

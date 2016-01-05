@@ -18,6 +18,24 @@ class Video_m{
         return $cmd->fetchAll();
     }
 
+    public function getAllFromCategorie($id){
+        $cmd = $this->base->prepare("SELECT v.idVideo, v.titreVideo, v.linkVideo, v.description,
+          v.dateSortie, c.idCategorie, c.nomCategorie, c.link_image
+          FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie AND c.idCategorie = ?");
+        $cmd->bindValue(1, $id);
+        $cmd->execute();
+        return $cmd->fetchAll();
+    }
+
+    public function getVideo($id){
+        $cmd = $this->base->prepare("SELECT v.titreVideo, v.linkVideo, v.description,
+          v.dateSortie, c.nomCategorie, c.link_image
+          FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie AND v.idVideo = ?");
+        $cmd->bindValue(1, $id);
+        $cmd->execute();
+        return $cmd->fetch();
+    }
+
     public function insert($data){
         $cmd = $this->base->prepare("INSERT INTO video (titreVideo, linkVideo, description, dateSortie, categorieVideo)
           VALUES (?, ?, ?, ?, ?)");

@@ -30,6 +30,12 @@ class Categorie_m{
         $cmd->bindValue(2, $data['image']);
         $cmd->execute();
     }
+
+    public function delete($id){
+        $cmd = $this->base->prepare("DELETE FROM categorie WHERE idCategorie = ?");
+        $cmd->bindValue(1, $id);
+        $cmd->execute();
+    }
 }
 
 ?>

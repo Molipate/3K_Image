@@ -48,6 +48,12 @@ class Main{
         include("views/association_v.php");
         include("views/foot_v.php");
     }
+
+    public function contact(){
+        include("views/head_v.php");
+        include("views/nav_v.php");
+        include("views/foot_v.php");
+    }
 }
 
 ?>
