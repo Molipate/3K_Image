@@ -69,6 +69,15 @@ label {
     background-color: white;
 }
 
+/* Affichage_des_vidéos */
+
+
+polygon:active:before{
+
+    -webkit-transform: rotate(7deg);
+    animation-name: rotation;
+    animation-duration: 4s;
+}
 .categorie img{
     position: relative;
     width: 33%;
@@ -114,13 +123,11 @@ label {
     vertical-align: top;
 }
 
-
 .img_video {
     height: 150px;
     width:auto;
     display: inline-block;
 }
-
 
 .video_video {
     position: relative;
@@ -129,3 +136,28 @@ label {
     margin-right: auto;
 }
 
+/* Affichage du formulaire de contact */
+
+label {
+    width: 300px;
+    display: block;
+    text-align: right;
+    margin-right: 10px;
+}
+
+input {
+    width: 500px;
+}
+
+textarea {
+    width: 500px;
+}
+
+button {
+    position: relative;
+    left: 310px;
+    width: 150px;
+    height: 50px;
+    background-color: cornflowerblue;
+    border-style: groove;
+}

@@ -49,9 +49,14 @@ class Main{
         include("views/foot_v.php");
     }
 
+    public function sendMail(){
+
+    }
+
     public function contact(){
         include("views/head_v.php");
         include("views/nav_v.php");
+        include("views/contact_v.php");
         include("views/foot_v.php");
     }
 }
