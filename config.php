@@ -5,7 +5,7 @@ define("password","good45moli");
 define("database","Perso");
 
 
-define("BASE_URL","http://localhost/~molipate/3K_Image/");
-define("BASE_IMG","http://localhost/~molipate/3K_Image/assets/img/");
+define("BASE_URL","http://localhost/~molipate/Documents/3K_Image/");
+define("BASE_IMG","http://localhost/~molipate/Documents/3K_Image/assets/img/");
 
 define("default_controller","Main");

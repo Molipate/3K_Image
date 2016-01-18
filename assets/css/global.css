@@ -95,7 +95,37 @@ label {
     overflow: hidden;
 }
 
+.info_video {
+
+    position: relative;
+    width: 896px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.date_video {
+    position: absolute;
+    right: 0px;
+}
+
+.titre_video {
+    font-size: 60px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.img_video {
+    height: 150px;
+    width:auto;
+    display: inline-block;
+}
+
 
 .video_video {
+    position: relative;
+    width: 896px;
+    margin-left: auto;
+    margin-right: auto;
 }
 

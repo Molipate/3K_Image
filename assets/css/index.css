@@ -31,3 +31,14 @@ polygon:hover{
     #fill: blue;
 }
 
+@keyframes rotation {
+
+}
+
+polygon:active:before{
+
+    -webkit-transform: rotate(7deg);
+    animation-name: rotation;
+    animation-duration: 4s;
+}
+
