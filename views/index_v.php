@@ -48,7 +48,7 @@
                 $("#p_video").rotate({
                     angle: 0,
                     center: ["0%", "100%"],
-                    animateTo:60
+                    animateTo:43
                 });
                 $("#p_contact").rotate({
                     angle: 0,
