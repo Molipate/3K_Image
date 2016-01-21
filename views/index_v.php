@@ -10,9 +10,9 @@
     </head>
     <body>
 
-        <svg height="390" width="500">
+        <svg height="500" width="500">
 
-            <a href="<?=BASE_URL?>index.php/main/videos" >
+            <a href="<?=BASE_URL?>index.php/video/index" >
                 <title>Visionnes nos vidéos !</title>
                 <polygon  points="275,0,308,156,50,390" id="p_video"></polygon>
                 <text x="200" y="150" fill="black">Nos vidéos</text>
@@ -30,21 +30,19 @@
                 <polygon  points="50,390,360,390,348,341,168,283" id="p_rejoindre"></polygon>
                 <text x="150" y="350">Nous rejoindre !</text>
             </a>
-        </svg>
-        <svg height="110" width="500">
+
             <a href="<?=BASE_URL?>index.php/main/association" id="link" >
                 <title>Mieux nous connaître</title>
-                <image xlink:href="<?=BASE_IMG?>name.png" x="50" y="60" height="37px" width="450px"></image>
+                <image xlink:href="<?=BASE_IMG?>name.png" id="text" x="50" y="420" height="37px" width="450px"></image>
             </a>
-
         </svg>
+
         <script>
             var svg = $('svg');
             svg.hide();
             $(document).ready(function(){
                svg.fadeIn(1500);
             });
-
 
 
             $("a").click(function(){
@@ -54,24 +52,21 @@
                 $("#p_video").rotate({
                     angle: 0,
                     center: ["0%", "100%"],
-                    animateTo:43
+                    animateTo:42
                 });
                 $("#p_contact").rotate({
                     angle: 0,
-                    center: ["44%", "87%"],
-                    animateTo:-60
+                    center: ["0%", "50%"],
+                    animateTo:60
                 });
-               
-                
                 $("#p_rejoindre").rotate({
                     angle: 0,
                     center: ["0%", "100%"],
-                    animateTo:-17.3
+                    animateTo:0
                 });
-                
+
                 setTimeout(function(){
-                	
-                    
+
                     $("svg").eq(0).slideUp(500);
                     //$("svg").slideUp();
                     setTimeout(function(){

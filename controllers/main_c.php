@@ -59,6 +59,20 @@ class Main{
         include("views/contact_v.php");
         include("views/foot_v.php");
     }
+
+    public function membre(){
+        include("views/head_v.php");
+        include("views/nav_v.php");
+        include("views/membre_v.php");
+        include("views/foot_v.php");
+    }
+
+    public function rejoindre(){
+        include("views/head_v.php");
+        include("views/nav_v.php");
+        include("views/rejoindre_v.php");
+        include("views/foot_v.php");
+    }
 }
 
 ?>
