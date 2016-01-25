@@ -4,88 +4,82 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="<?=BASE_URL?>assets/css/index.css">
         <script src="<?=BASE_URL?>assets/js/jquery-1.12.0.min.js"></script>
-        <script src="<?=BASE_URL?>assets/js/jQueryRotate.js"></script>
+        <script src="<?=BASE_URL?>assets/js/svg.min.js"></script>
 
         <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     </head>
     <body>
+        <div id="drawing">
 
-        <svg height="390" width="500">
+        <svg  id="svggg"height="390" width="450" style="position: absolute;">
 
-            <a href="<?=BASE_URL?>index.php/main/videos" >
+            <a href="<?=BASE_URL?>index.php/main/videos" style="background:red;">
                 <title>Visionnes nos vidéos !</title>
-                <polygon  points="275,0,308,156,50,390" id="p_video"></polygon>
-                <text x="200" y="150" fill="black">Nos vidéos</text>
+                <polygon  points="225,0,258,156,0,390" id="p_video" fill-opacity="0" ></polygon>
+                <text x="150" y="150" fill="black">Nos vidéos</text>
             </a>
 
             <a href="<?=BASE_URL?>index.php/main/contact"  >
                 <title>Contactez nous !</title>
-                <polygon  points="275,0,348,341,500,390" id="p_contact"></polygon>
-                <text x="360" y="320">Contacts</text>
+                <polygon  points="225,0,298,341,450,390" id="p_contact" fill-opacity="0"></polygon>
+                <text x="310" y="320">Contacts</text>
             </a>
 
 
             <a href="" >
                 <title>Rejoignez nous !</title>
-                <polygon  points="50,390,360,390,348,341,168,283" id="p_rejoindre"></polygon>
-                <text x="150" y="350">Nous rejoindre !</text>
+                <polygon  points="0,390,310,390,298,341,118,283" id="p_rejoindre" fill-opacity="0"></polygon>
+                <text x="100" y="350">Nous rejoindre !</text>
             </a>
         </svg>
-        <svg height="110" width="500">
+        </div>
+        <svg height="110" width="450" >
             <a href="<?=BASE_URL?>index.php/main/association" id="link" >
                 <title>Mieux nous connaître</title>
-                <image xlink:href="<?=BASE_IMG?>name.png" x="50" y="60" height="37px" width="450px"></image>
+                <image xlink:href="<?=BASE_IMG?>name.png" x="0" y="60" height="37px" width="400px"></image>
             </a>
 
         </svg>
         <script>
             var svg = $('svg');
+            var path_speed = 500;
             svg.hide();
             $(document).ready(function(){
                svg.fadeIn(1500);
             });
+            var draw = SVG('drawing').size(450, 390);
+            var polygon2 = draw.polygon('225,0 298,341 450,390').fill('white').stroke({ width: 1 });
+            var polygon1 = draw.polygon('225,0 258,156 0,390').fill('white').stroke({ width: 1 });
 
+            var polygon3 = draw.polygon('0,390 310,390 298,341 118,283').fill('white').stroke({ width: 1 });
 
-
+            var html1 = "<title>Rejoignez nous !</title>";
             $("a").click(function(){
 
-            	$("svg:eq(0) text").fadeOut();
+            	$("svg:eq(0)").fadeOut();
 
-                $("#p_video").rotate({
-                    angle: 0,
-                    center: ["0%", "100%"],
-                    animateTo:43
-                });
-                $("#p_contact").rotate({
-                    angle: 0,
-                    center: ["44%", "87%"],
-                    animateTo:-60
-                });
-               
-                
-                $("#p_rejoindre").rotate({
-                    angle: 0,
-                    center: ["0%", "100%"],
-                    animateTo:-17.3
-                });
-                
+                polygon2.animate(path_speed).plot([[225,0], [118,283], [0,390]]);
                 setTimeout(function(){
-                	
-                    
-                    $("svg").eq(0).slideUp(500);
+                    polygon2.hide();
+                    polygon1.animate(path_speed).plot([[450,390], [298,341], [0,390]]);
+                },path_speed);
+
+                setTimeout(function(){
+
+                    $('svg:eq(1)').slideUp(path_speed);
                     //$("svg").slideUp();
                     setTimeout(function(){
                     
-                    $("svg").eq(1).fadeOut(500);
+                    $("svg").eq(1).fadeOut(path_speed);
                     //$("svg").slideUp();
 
-                	},500);
-                },1000);
+                	},path_speed);
+                },3*path_speed);
                 
                 var href = $(this).attr('href');
 
                 // Delay setting the location for one second
-                setTimeout(function() {window.location = href}, 2500);
+                setTimeout(function() {window.location = href}, 4*path_speed);
                 return false;
             });
 
