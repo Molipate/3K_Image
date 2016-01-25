@@ -42,7 +42,7 @@
         </svg>
         <script>
             var svg = $('svg');
-            var path_speed = 700;
+            var path_speed = 1000;
             svg.hide();
             $(document).ready(function(){
                svg.fadeIn(path_speed);
@@ -58,7 +58,7 @@
 
             	$("svg:eq(0)").fadeOut(path_speed);
 
-                polygon2.animate(path_speed/2).plot([[225,0], [258,156] , [118,283], [0,390]]);
+                polygon2.animate(path_speed/2).plot([[225,0], [258,156] , [258,156], [0,390]]);
                 setTimeout(function(){
                     polygon2.hide();
                     polygon1.animate(path_speed/2).plot([[225,0], [225,0], [118,283] , [0,390]]);
@@ -69,7 +69,7 @@
                 },path_speed);
                 setTimeout(function(){
                     polygon1.animate(path_speed/2).plot([[455,390], [455,390], [0,390] , [0,390]]);
-                    polygon3.animate(path_speed/2).plot([[455,390], [455,390], [0,390] , [0,390]]);
+                    polygon3.animate(path_speed/2).plot([[0,390], [450,390], [450,390] , [0,390]]);
 
                     //$("svg").slideUp();
                     setTimeout(function(){
