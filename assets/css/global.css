@@ -6,7 +6,6 @@ body {
     background-image: url("../img/background/7.jpg");
     font-family: font;
 }
-
 a { color: blue; text-decoration: none; }
 a:visited { color: blue;  }
 tr, img{
@@ -16,7 +15,6 @@ table, tr, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
-
 nav .logo_nav a img{
     position: absolute;
     top: 100px;
@@ -24,19 +22,16 @@ nav .logo_nav a img{
     width: 200px;
     height: auto;
 }
-
 nav .zone_onglets{
     position: absolute;
     right: 10%;
     top: 250px;
 }
-
 label {
     display: block;
     float: left;
     width: 150px;
 }
-
 .admin {
     position: absolute;
     top: 10px;
@@ -44,21 +39,16 @@ label {
     display: inline-block;
     background-color: white;
 }
-
 .onglet_admin{
-    background-color: white;
-    color: white;
     text-decoration: none;
     padding: 0px 10px;
     height: 50px;
 }
-
 .onglet{
     background-color: white;
     padding: 0px 10px;
     height: 50px;
 }
-
 .canvas{
     padding: 20px;
     border: 1px solid black;
@@ -71,28 +61,18 @@ label {
 
 /* Affichage_des_vidéos */
 
-
-polygon:active:before{
-
-    -webkit-transform: rotate(7deg);
-    animation-name: rotation;
-    animation-duration: 4s;
-}
 .categorie img{
     position: relative;
     width: 33%;
     height: auto;
 }
-
 .liste_video a{
     color: black;
 }
-
 .video_head p{
     display: inline-block;
     vertical-align: top;
 }
-
 .video_body p{
     position: absolute;
     display: inline-block;
@@ -103,7 +83,6 @@ polygon:active:before{
     word-wrap: break-word;
     overflow: hidden;
 }
-
 .info_video {
 
     position: relative;
@@ -111,24 +90,20 @@ polygon:active:before{
     margin-left: auto;
     margin-right: auto;
 }
-
 .date_video {
     position: absolute;
     right: 0px;
 }
-
 .titre_video {
     font-size: 48px;
     display: inline-block;
     vertical-align: top;
 }
-
 .img_video {
     height: 150px;
     width:auto;
     display: inline-block;
 }
-
 .video_video {
     position: relative;
     width: 896px;
@@ -144,15 +119,12 @@ label {
     text-align: right;
     margin-right: 10px;
 }
-
 input {
     width: 500px;
 }
-
 textarea {
     width: 500px;
 }
-
 button {
     position: relative;
     left: 310px;
@@ -160,4 +132,25 @@ button {
     height: 50px;
     background-color: cornflowerblue;
     border-style: groove;
+}
+
+/* Affichage de la page des membres */
+
+.membre{
+    width: 100%;
+    display: inline-block;
+}
+.membre_nom{
+    font-size: 3em;
+    font-weight: bold;
+}
+.membre_photo{
+    width: 250px;
+    height: auto;
+    float: left;
+    margin-right: 10px;
+}
+.membre_description{
+    position: relative;
+    display: block;
 }

@@ -12,9 +12,11 @@
             <li class="divider"></li>
             <li><a href="<?=BASE_URL?>index.php/admin/ajouterVideo">Ajouter une vidéo</a></li>
             <li><a href="<?=BASE_URL?>index.php/admin/ajouterCategorie">Ajouter une catégorie</a></li>
+            <li><a href="<?=BASE_URL?>index.php/admin/membre">Page des membres</a></li>
+            <li><a href="<?=BASE_URL?>index.php/admin/asso">Page de l'association</a></li>
         </ul>
         <ul class="right">
-            <li class="active"><a href="<?php echo BASE_URL; ?>index.php/main/index">Retourner au site</a></li>
+            <li class="active"><a href="<?php echo BASE_URL; ?>index.php/video/index">Retourner au site</a></li>
         </ul>
     </section>
 </nav>

@@ -18,3 +18,12 @@ CREATE TABLE video (
   CONSTRAINT fk_categorieVideo FOREIGN KEY(categorieVideo) REFERENCES categorie(idCategorie),
   PRIMARY KEY(idVideo)
 ) Engine = InnoDB;
+
+CREATE TABLE membre (
+  idMembre INT AUTO_INCREMENT,
+  nomMembre VARCHAR(10),
+  prenomMembre VARCHAR(10),
+  link_photo VARCHAR(50),
+  descriptionMembre TEXT,
+  PRIMARY KEY(idMembre)
+) Engine = InnoDB;

@@ -4,13 +4,16 @@ class Admin{
 
     private $instanceOfVideo;
     private $instanceOfCategorie;
+    private $instanceOfMembre;
 
     //DONE
     public function __construct(){
         require_once("models/video_m.php");
         require_once("models/categorie_m.php");
+        require_once("models/membre_m.php");
         $this->instanceOfVideo = new Video_m();
         $this->instanceOfCategorie = new Categorie_m();
+        $this->instanceOfMembre = new Membre_m();
     }
     //DONE
     public function checkDroit(){
@@ -136,6 +139,75 @@ class Admin{
         $this->instanceOfVideo->delete($id);
         header("location: ".BASE_URL."index.php/admin/index");
     }
+    //DONE
+    public function membre(){
+        $this->checkDroit();
+
+        $membre = $this->instanceOfMembre->getAll();
+
+        include("views/admin/head_v.php");
+        include("views/admin/nav_v.php");
+        include("views/admin/membre/membre_v.php");
+        include("views/admin/foot_v.php");
+    }
+    //WORKS
+    public function validFormAjouterMembre(){
+
+        $this->checkDroit();
+        $errors = array();
+        $data = array();
+
+        if(empty($_POST['nom'])){
+            $errors['nom'] = "Veuillez saisir le nom de la personne";
+        }
+
+        if(empty($_POST['prenom'])){
+            $errors['prenom'] = "Veuillez saisir le prenom de la personne";
+        }
+
+        if(empty($_FILES['image']['name']))
+            $errors['image'] = "Veuillez choisir une image";
+        /*else{
+            $file_extension = strtolower(substr(strrchr($_FILES['icone']['name'], '.'), 1));
+            $extension_allowed = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+        }*/
+
+        $data['nom'] = htmlentities($_POST['nom']);
+        $data['prenom'] = htmlentities($_POST['prenom']);
+        $data['image'] = htmlentities($_FILES['image']['name']);
+        $data['description'] = htmlentities($_POST['description']);
+
+        if(!empty($errors)){
+            include("views/admin/head_v.php");
+            include("views/admin/nav_v.php");
+            include("views/admin/form/form_ajouter_membre.php");
+            include("views/admin/foot_v.php");
+        }
+        else{
+            $target = "assets/img/membre/".$data['image'];
+            if(move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+                echo "lol";
+                $this->instanceOfMembre->insert($data);
+                header("location: " . BASE_URL . "index.php/admin/membre");
+            }
+            else{
+                echo "Failed to move file";
+            }
+        }
+    }
+
+    public function ajouterMembre(){
+        include("views/admin/head_v.php");
+        include("views/admin/nav_v.php");
+        include("views/admin/form/form_ajouter_membre.php");
+        include("views/admin/foot_v.php");
+    }
+
+    public function modifierMembre($id){
+
+    }
+
+    public function supprMembre($id){}
 }
 
 
