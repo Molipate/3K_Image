@@ -10,10 +10,12 @@
     </head>
     <body>
         <div id="drawing">
-
         <svg  id="svggg"height="390" width="450" style="position: absolute;">
 
             <a href="<?=BASE_URL?>index.php/main/videos" style="background:red;">
+        <svg height="500" width="500">
+
+            <a href="<?=BASE_URL?>index.php/video/index" >
                 <title>Visionnes nos vidéos !</title>
                 <polygon  points="225,0,258,156,0,390" id="p_video" fill-opacity="0" ></polygon>
                 <text x="150" y="150" fill="black">Nos vidéos</text>
@@ -31,15 +33,22 @@
                 <polygon  points="0,390,310,390,298,341,118,283" id="p_rejoindre" fill-opacity="0"></polygon>
                 <text x="100" y="350">Nous rejoindre !</text>
             </a>
+
         </svg>
         </div>
         <svg height="110" width="450" >
             <a href="<?=BASE_URL?>index.php/main/association" id="link" >
                 <title>Mieux nous connaître</title>
                 <image xlink:href="<?=BASE_IMG?>name.png" x="0" y="60" height="37px" width="400px"></image>
-            </a>
 
+
+            <a href="<?=BASE_URL?>index.php/main/association" id="link" >
+                <title>Mieux nous connaître</title>
+                <image xlink:href="<?=BASE_IMG?>name.png" id="text" x="50" y="420" height="37px" width="450px"></image>
+
+            </a>
         </svg>
+
         <script>
             var svg = $('svg');
             var path_speed = 500;
@@ -67,6 +76,29 @@
                 setTimeout(function(){
 
                     $('svg:eq(1)').slideUp(path_speed);
+            $("a").click(function(){
+
+            	$("svg:eq(0) text").fadeOut();
+
+                $("#p_video").rotate({
+                    angle: 0,
+                    center: ["0%", "100%"],
+                    animateTo:42
+                });
+                $("#p_contact").rotate({
+                    angle: 0,
+                    center: ["0%", "50%"],
+                    animateTo:60
+                });
+                $("#p_rejoindre").rotate({
+                    angle: 0,
+                    center: ["0%", "100%"],
+                    animateTo:0
+                });
+
+                setTimeout(function(){
+
+                    $("svg").eq(0).slideUp(500);
                     //$("svg").slideUp();
                     setTimeout(function(){
                     
