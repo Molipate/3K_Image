@@ -15,20 +15,20 @@
 
                 <a href="<?=BASE_URL?>index.php/video/index" style="background:red;">
                     <title>Visionnes nos vidéos !</title>
-                    <polygon  points="225,0,258,156,0,390" id="p_video" fill-opacity="0" ></polygon>
+                    <polygon  points="225,0,258,156,0,390" id="p_video"></polygon>
                     <text x="150" y="150" fill="black">Nos vidéos</text>
                 </a>
 
                 <a href="<?=BASE_URL?>index.php/main/contact"  >
                     <title>Contactez nous !</title>
-                    <polygon  points="225,0,298,341,450,390" id="p_contact" fill-opacity="0"></polygon>
+                    <polygon  points="225,0,298,341,450,390" id="p_contact"></polygon>
                     <text x="310" y="320">Contacts</text>
                 </a>
 
 
                 <a href="" >
                     <title>Rejoignez nous !</title>
-                    <polygon  points="0,390,310,390,298,341,118,283" id="p_rejoindre" fill-opacity="0"></polygon>
+                    <polygon  points="0,390,310,390,298,341,118,283" id="p_rejoindre"></polygon>
                     <text x="100" y="350">Nous rejoindre !</text>
                 </a>
             </svg>
@@ -49,9 +49,9 @@
             });
             var draw = SVG('drawing').size(450, 390);
 
-            var polygon2 = draw.polygon('225,0 258,156 298,341 450,390').fill('white').stroke({ width: 1 });
-            var polygon1 = draw.polygon('225,0 258,156 118,283 0,390').fill('white').stroke({ width: 1 });
-            var polygon3 = draw.polygon('0,390 310,390 298,341 118,283').fill('white').stroke({ width: 1 });
+            var polygon2 = draw.polygon('225,0 258,156 298,341 450,390').fill('#dadada').stroke({ width: 1 });
+            var polygon1 = draw.polygon('225,0 258,156 118,283 0,390').fill('#ffffff').stroke({ width: 1 });
+            var polygon3 = draw.polygon('0,390 310,390 298,341 118,283').fill('#aaaaaa').stroke({ width: 1 });
 
             var html1 = "<title>Rejoignez nous !</title>";
             $("a").click(function(){

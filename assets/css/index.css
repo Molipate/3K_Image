@@ -16,6 +16,10 @@ body{
 }
 
 
-
-
+polygon{
+    fill-opacity: 0.7;
+}
+a>polygon{
+    fill: white;
+}
 
