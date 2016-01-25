@@ -1,6 +1,6 @@
 <nav>
     <div class="logo_nav">
-        <a href="<?=BASE_URL?>index.php"><img src="<?=BASE_URL?>assets/img/logo.png" alt="logo"/></a>
+        <a href="<?=BASE_URL?>index.php/main/index"><img src="<?=BASE_URL?>assets/img/logo.png" alt="logo"/></a>
     </div>
     <div class="zone_onglets">
         <table>
@@ -22,7 +22,7 @@
                     <td class="onglet_admin"><a href="<?= BASE_URL ?>index.php/admin/index">Gestion du site</a></td>
                     <td class="onglet_admin"><a href="<?= BASE_URL ?>index.php/main/deconnexion">Déconnexion</a></td>
                 <?php } else { ?>
-                    <td class="onglet"><a href="<?= BASE_URL ?>index.php/main/connexion">Administration</a></td>
+                    <td class="onglet_admin"><a href="<?= BASE_URL ?>index.php/main/connexion">Administration</a></td>
                 <?php } ?>
             </tr>
         </table>

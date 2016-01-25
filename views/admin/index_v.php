@@ -68,7 +68,7 @@ Rien à afficher, ajoutez des catégories, puis des vidéos ...
                             <td><img src="'.BASE_IMG.$v['link_image'].'"/></td>
                             <td>'.$this->makeVideo($v['linkVideo'], 250).'</td>
                             <td>
-                                <a href="'.BASE_URL.'index.php/admin/viewVideo/'.$v['idVideo'].'">
+                                <a href="'.BASE_URL.'index.php/video/video/'.$v['idVideo'].'">
                                     <img src="'.BASE_URL."assets/img/view.png".'">
                                     </a>
                             </td>

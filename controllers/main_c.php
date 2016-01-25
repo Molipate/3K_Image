@@ -2,8 +2,12 @@
 
 class Main{
 
+    private $instanceOfMembre;
+
     public function __construct(){
 
+        require_once("models/membre_m.php");
+        $this->instanceOfMembre = new Membre_m();
     }
 
     public function index(){
@@ -61,6 +65,9 @@ class Main{
     }
 
     public function membre(){
+
+        $membre = $this->instanceOfMembre->getAll();
+
         include("views/head_v.php");
         include("views/nav_v.php");
         include("views/membre_v.php");
@@ -71,6 +78,12 @@ class Main{
         include("views/head_v.php");
         include("views/nav_v.php");
         include("views/rejoindre_v.php");
+        include("views/foot_v.php");
+    }
+
+    public function projet(){
+        include("views/head_v.php");
+        include("views/nav_v.php");
         include("views/foot_v.php");
     }
 }
