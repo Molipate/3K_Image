@@ -42,44 +42,49 @@
         </svg>
         <script>
             var svg = $('svg');
-            var path_speed = 500;
+            var path_speed = 700;
             svg.hide();
             $(document).ready(function(){
-               svg.fadeIn(1500);
+               svg.fadeIn(path_speed);
             });
             var draw = SVG('drawing').size(450, 390);
-            var polygon2 = draw.polygon('225,0 298,341 450,390').fill('white').stroke({ width: 1 });
-            var polygon1 = draw.polygon('225,0 258,156 0,390').fill('white').stroke({ width: 1 });
 
+            var polygon2 = draw.polygon('225,0 258,156 298,341 450,390').fill('white').stroke({ width: 1 });
+            var polygon1 = draw.polygon('225,0 258,156 118,283 0,390').fill('white').stroke({ width: 1 });
             var polygon3 = draw.polygon('0,390 310,390 298,341 118,283').fill('white').stroke({ width: 1 });
 
             var html1 = "<title>Rejoignez nous !</title>";
             $("a").click(function(){
 
-            	$("svg:eq(0)").fadeOut();
+            	$("svg:eq(0)").fadeOut(path_speed);
 
-                polygon2.animate(path_speed).plot([[225,0], [118,283], [0,390]]);
+                polygon2.animate(path_speed/2).plot([[225,0], [258,156] , [118,283], [0,390]]);
                 setTimeout(function(){
                     polygon2.hide();
-                    polygon1.animate(path_speed).plot([[450,390], [298,341], [0,390]]);
-                },path_speed);
+                    polygon1.animate(path_speed/2).plot([[225,0], [225,0], [118,283] , [0,390]]);
 
+                },path_speed/2);
                 setTimeout(function(){
+                    polygon1.animate(path_speed/2).plot([[455,390], [455,390], [118,283] , [0,390]]);
+                },path_speed);
+                setTimeout(function(){
+                    polygon1.animate(path_speed/2).plot([[455,390], [455,390], [0,390] , [0,390]]);
+                    polygon3.animate(path_speed/2).plot([[455,390], [455,390], [0,390] , [0,390]]);
 
-                    $('svg:eq(1)').slideUp(path_speed);
                     //$("svg").slideUp();
                     setTimeout(function(){
-                    
-                    $("svg").eq(1).fadeOut(path_speed);
-                    //$("svg").slideUp();
+                        $('svg:eq(1)').slideUp(path_speed);
+                        setTimeout(function(){
+                            $("svg").eq(2).slideUp(path_speed);
+                        },path_speed);
+                	},path_speed/2);
 
-                	},path_speed);
-                },3*path_speed);
+                },1.5*path_speed);
                 
                 var href = $(this).attr('href');
 
                 // Delay setting the location for one second
-                setTimeout(function() {window.location = href}, 4*path_speed);
+                setTimeout(function() {window.location = href}, 3.5*path_speed);
                 return false;
             });
 
