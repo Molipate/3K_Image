@@ -36,9 +36,8 @@
         <svg height="110" width="450" >
             <a href="<?=BASE_URL?>index.php/main/association" id="link" >
                 <title>Mieux nous connaître</title>
-                <image xlink:href="<?=BASE_IMG?>name.png" x="0" y="60" height="37px" width="400px"></image>
+                <image xlink:href="<?=BASE_IMG?>name.png" x="0" y="60" height="37px" width="450px"></image>
             </a>
-
         </svg>
         <script>
             var svg = $('svg');
