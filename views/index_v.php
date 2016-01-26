@@ -10,25 +10,29 @@
     </head>
     <body>
         <div id="drawing">
-
             <svg  id="svggg"height="390" width="450" style="position: absolute;">
 
-                <a href="<?=BASE_URL?>index.php/video/index" style="background:red;">
+                <a href="<?=BASE_URL?>index.php/main/projet" >
+                    <title>Nos projets ... </title>
+                    <polygon  points="225,0,258,156,0,390" id="p_projet" fill="white"></polygon>
+                    <text x="150" y="150" fill="black">Nos projets !</text>
+                </a>
+
+                <a href="<?=BASE_URL?>index.php/video/index">
                     <title>Visionnes nos vidéos !</title>
-                    <polygon  points="225,0,258,156,0,390" id="p_video"></polygon>
-                    <text x="150" y="150" fill="black">Nos vidéos</text>
+                    <polygon  points="258,156,298,341,118,283" id="p_video"></polygon>
+                    <text x="155" y="280" fill="white" font-weight="bold" font-size="1.3em">Nos vidéos</text>
                 </a>
 
                 <a href="<?=BASE_URL?>index.php/main/contact"  >
                     <title>Contactez nous !</title>
-                    <polygon  points="225,0,298,341,450,390" id="p_contact"></polygon>
+                    <polygon  points="225,0,298,341,450,390" id="p_contact" fill="white"></polygon>
                     <text x="310" y="320">Contacts</text>
                 </a>
 
-
                 <a href="" >
                     <title>Rejoignez nous !</title>
-                    <polygon  points="0,390,310,390,298,341,118,283" id="p_rejoindre"></polygon>
+                    <polygon  points="0,390,310,390,298,341,118,283" id="p_rejoindre" fill="white"></polygon>
                     <text x="100" y="350">Nous rejoindre !</text>
                 </a>
             </svg>
@@ -48,11 +52,10 @@
             });
             var draw = SVG('drawing').size(450, 390);
 
-            var polygon2 = draw.polygon('225,0 258,156 298,341 450,390').fill('#dadada').stroke({ width: 1 });
-            var polygon1 = draw.polygon('225,0 258,156 118,283 0,390').fill('#ffffff').stroke({ width: 1 });
-            var polygon3 = draw.polygon('0,390 310,390 298,341 118,283').fill('#aaaaaa').stroke({ width: 1 });
+            var polygon2 = draw.polygon('225,0 258,156 298,341 450,390').fill("white").stroke({ width: 1 });
+            var polygon1 = draw.polygon('225,0 258,156 118,283 0,390').fill("white").stroke({ width: 1 });
+            var polygon3 = draw.polygon('0,390 310,390 298,341 118,283').fill("white").stroke({ width: 1 });
 
-            var html1 = "<title>Rejoignez nous !</title>";
             $("a").click(function(){
 
             	$("svg:eq(0)").fadeOut(path_speed);

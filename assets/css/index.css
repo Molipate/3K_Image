@@ -15,11 +15,6 @@ body{
     margin: auto;
 }
 
-
-polygon{
-    fill-opacity: 0.7;
+#p_video {
+    fill-opacity: 0;
 }
-a>polygon{
-    fill: white;
-}
-
