@@ -58,7 +58,7 @@
 
             $("a").click(function(){
 
-            	$("svg:eq(0)").fadeOut(path_speed);
+            	$("svg:eq(0)").hide()
 
                 polygon2.animate(path_speed/2).plot([[225,0], [258,156] , [258,156], [0,390]]);
                 setTimeout(function(){
