@@ -34,7 +34,7 @@ Rien à afficher, ajoutez des catégories, puis des vidéos ...
                     <?php
                     foreach($categorie as $c){
                         echo '<tr><td>'.$c['nomCategorie'].'</td>
-                            <td><img src="'.BASE_IMG.$c['link_image'].'"></td>
+                            <td><img src="'.BASE_IMG.$c['linkImage'].'"></td>
                             <td>
                                 <a href="'.BASE_URL.'index.php/admin/modifierCategorie/'.$c['idCategorie'].'">
                                     <img src="'.BASE_IMG."edit.png".'">

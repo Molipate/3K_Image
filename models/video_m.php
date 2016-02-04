@@ -3,25 +3,38 @@
 class Video_m{
 
     private $base;
-
+    //DONE
     public function __construct(){
 
         $co = new Connexion();
         $this->base = $co->connect();
     }
-
+    //DONE
     public function getAllVideo(){
-        $cmd = $this->base->prepare("SELECT v.idVideo, v.titreVideo, v.linkVideo, v.description,
-          v.dateSortie, c.idCategorie, c.nomCategorie, c.link_image
-          FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie");
+        $cmd = $this->base->prepare("
+          SELECT v.idVideo, v.titreVideo, v.linkVideo, v.dateVideo,
+            c.idCategorie, c.nomCategorie,
+            i.idImage, i.linkImage,
+            t.idText, t.text
+          FROM video v, categorie c, image i, text t
+          WHERE v.categorieVideo = c.idCategorie
+          AND c.imageCategorie = i.idImage
+          AND v.descriptionVideo = t.idText");
         $cmd->execute();
         return $cmd->fetchAll();
     }
-
+    //DONE
     public function getAllFromCategorie($id){
-        $cmd = $this->base->prepare("SELECT v.idVideo, v.titreVideo, v.linkVideo, v.description,
-          v.dateSortie, c.idCategorie, c.nomCategorie, c.link_image
-          FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie AND c.idCategorie = ?");
+        $cmd = $this->base->prepare("
+          SELECT v.idVideo, v.titreVideo, v.linkVideo, v.dateVideo,
+            c.idCategorie, c.nomCategorie,
+            i.idImage, i.linkImage,
+            t.idText, t.text
+          FROM video v, categorie c, image i, text t
+          WHERE v.categorieVideo = c.idCategorie
+          AND c.imageCategorie = i.idImage
+          AND v.descriptionVideo = t.idText
+          AND c.idCategorie = ?");
         $cmd->bindValue(1, $id);
         $cmd->execute();
         return $cmd->fetchAll();
@@ -50,7 +63,7 @@ class Video_m{
     public function update($data){
 
     }
-
+    //Check for foreign key
     public function delete($id){
         $cmd = $this->base->prepare("DELETE FROM video WHERE idVideo =?");
         $cmd->bindValue(1, $id);

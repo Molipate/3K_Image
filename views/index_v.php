@@ -15,13 +15,13 @@
                 <a href="<?=BASE_URL?>index.php/main/projet" >
                     <title>Nos projets ... </title>
                     <polygon  points="225,0,258,156,0,390" id="p_projet" fill="white"></polygon>
-                    <text x="150" y="150" fill="black">Nos projets !</text>
+                    <text x="145" y="155" fill="black">Nos projets !</text>
                 </a>
 
                 <a href="<?=BASE_URL?>index.php/video/index">
                     <title>Visionnes nos vidéos !</title>
                     <polygon  points="258,156,298,341,118,283" id="p_video"></polygon>
-                    <text x="155" y="280" fill="white" font-weight="bold" font-size="1.3em">Nos vidéos</text>
+                    <text x="148" y="280" fill="white" font-weight="bold" font-size="1.2em">Nos vidéos !</text>
                 </a>
 
                 <a href="<?=BASE_URL?>index.php/main/contact"  >

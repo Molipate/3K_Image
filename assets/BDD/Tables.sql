@@ -1,29 +1,48 @@
+DROP TABLE IF EXISTS membre;
 DROP TABLE IF EXISTS video;
 DROP TABLE IF EXISTS categorie;
+DROP TABLE IF EXISTS text;
+DROP TABLE IF EXISTS image;
 
-CREATE TABLE categorie (
+CREATE TABLE image(
+  idImage INT AUTO_INCREMENT,
+  linkImage VARCHAR(100),
+  PRIMARY KEY(idImage)
+) ENGINE = InnoDB;
+
+CREATE TABLE text(
+  idText INT AUTO_INCREMENT,
+  text TEXT,
+  PRIMARY KEY(idText)
+) ENGINE = InnoDB;
+
+CREATE TABLE categorie(
   idCategorie INT AUTO_INCREMENT,
   nomCategorie VARCHAR(30),
-  link_image VARCHAR(50),
-  PRIMARY KEY(idCategorie)
-) Engine = InnoDB;
+  imageCategorie INT NOT NULL,
+  PRIMARY KEY(idCategorie),
+  CONSTRAINT fk_imageCategorie FOREIGN KEY(imageCategorie) REFERENCES image(idImage)
+) ENGINE = InnoDB;
 
-CREATE TABLE video (
+CREATE TABLE video(
   idVideo INT AUTO_INCREMENT,
   titreVideo VARCHAR(100),
   linkVideo VARCHAR(200),
-  description TEXT,
-  dateSortie DATE,
-  categorieVideo INT,
+  dateVideo DATE,
+  categorieVideo INT NOT NULL,
+  descriptionVideo INT NOT NULL,
+  PRIMARY KEY(idVideo),
   CONSTRAINT fk_categorieVideo FOREIGN KEY(categorieVideo) REFERENCES categorie(idCategorie),
-  PRIMARY KEY(idVideo)
-) Engine = InnoDB;
+  CONSTRAINT fk_descriptionVideo FOREIGN KEY(descriptionVideo) REFERENCES text(idText)
+) ENGINE = InnoDB;
 
-CREATE TABLE membre (
+CREATE TABLE membre(
   idMembre INT AUTO_INCREMENT,
-  nomMembre VARCHAR(10),
-  prenomMembre VARCHAR(10),
-  link_photo VARCHAR(50),
-  descriptionMembre TEXT,
-  PRIMARY KEY(idMembre)
-) Engine = InnoDB;
+  nomMembre VARCHAR(15),
+  prenomMembre VARCHAR(15),
+  photoMembre INT NOT NULL,
+  descriptionMembre INT NOT NULL,
+  PRIMARY KEY(idMembre),
+  CONSTRAINT fk_photoMembre FOREIGN KEY(photoMembre) REFERENCES image(idImage),
+  CONSTRAINT fk_descriptionMembre FOREIGN KEY(descriptionMembre) REFERENCES text(idText)
+) ENGINE = InnoDB;

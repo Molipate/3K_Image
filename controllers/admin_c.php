@@ -32,7 +32,7 @@ class Admin{
         include("views/admin/index_v.php");
         include("views/admin/foot_v.php");
     }
-
+    //Youtube works
     public function makeVideo($link, $w){
         if(substr($link, 12, 7) == "youtube"){
             $id = substr($link, 32);
@@ -40,7 +40,7 @@ class Admin{
                         " frameborder="0" allowfullscreen></iframe>';
         }
     }
-    //DONE
+
     public function ajouterCategorie(){
         $this->checkDroit();
         include("views/admin/head_v.php");
@@ -134,12 +134,12 @@ class Admin{
         $this->instanceOfCategorie->delete($id);
         header("location: ".BASE_URL."index.php/admin/index");
     }
-    //DONE
+
     public function supprVideo($id){
         $this->instanceOfVideo->delete($id);
         header("location: ".BASE_URL."index.php/admin/index");
     }
-    //DONE
+
     public function membre(){
         $this->checkDroit();
 
@@ -150,7 +150,7 @@ class Admin{
         include("views/admin/membre/membre_v.php");
         include("views/admin/foot_v.php");
     }
-    //WORKS
+
     public function validFormAjouterMembre(){
 
         $this->checkDroit();
@@ -208,7 +208,25 @@ class Admin{
     }
 
     public function supprMembre($id){}
-}
 
+    public function modifierAssociation(){
+
+        if(empty($_POST['text'])){
+
+            include("views/admin/head_v.php");
+            include("views/admin/nav_v.php");
+            include("views/admin/form/form_modifier_asso.php");
+            include("views/admin/foot.php");
+        }
+    }
+
+    public function association(){
+
+        include("views/admin/head_v.php");
+        include("views/admin/nav_v.php");
+        include("views/admin/form/form_modifier_asso.php");
+        include("views/admin/foot.php");
+    }
+}
 
 ?>

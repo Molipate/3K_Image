@@ -9,28 +9,45 @@ class Categorie_m{
         $co = new Connexion();
         $this->base = $co->connect();
     }
-
+    //DONE
     public function getAllCategorie(){
-        $cmd = $this->base->prepare("SELECT idCategorie, nomCategorie, link_image FROM categorie");
+        $cmd = $this->base->prepare("
+          SELECT c.idCategorie, c.nomCategorie, i.linkImage
+          FROM categorie c, image i
+          WHERE c.imageCategorie = i.idImage");
         $cmd->execute();
         return $cmd->fetchAll();
     }
-
+    //DONE
     public function getCategorie($id){
-        $cmd = $this->base->prepare("SELECT idCategorie, nomCategorie, link_image
-          FROM categorie WHERE idCategorie=?");
+        $cmd = $this->base->prepare("
+          SELECT c.idCategorie, c.nomCategorie, i.linkImage
+          FROM categorie c, image i
+          WHERE c.imageCategorie = i.idImage
+          AND c.idCategorie = ?");
         $cmd->bindValue(1, $id);
         $cmd->execute();
         return $cmd->fetch();
     }
-
+    //DONE
     public function insert($data){
-        $cmd = $this->base->prepare("INSERT INTO categorie (nomCategorie, link_image) VALUES (?, ?)");
+
+        $cmd = $this->base->prepare("INSERT INTO image (linkImage) VALUES (?)");
+        $cmd->bindValue(1, $data['image']);
+        $cmd->execute();
+
+        $idImage = $this->base->lastInsertId();
+
+        $cmd = $this->base->prepare("INSERT INTO categorie (nomCategorie, imageCategorie) VALUES (?, ?)");
         $cmd->bindValue(1, $data['titre']);
-        $cmd->bindValue(2, $data['image']);
+        $cmd->bindValue(2, $idImage);
         $cmd->execute();
     }
 
+    public function update($data){
+
+    }
+    //Check for foreign k
     public function delete($id){
         $cmd = $this->base->prepare("DELETE FROM categorie WHERE idCategorie = ?");
         $cmd->bindValue(1, $id);
