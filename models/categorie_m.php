@@ -59,11 +59,12 @@ class Categorie_m{
         $cmd->bindValue(1, $id);
         $cmd->execute();
         $idImage = $cmd->fetch();
+
         echo $idImage;
 
         $cmd = $this->base->prepare("UPDATE image SET linkImage = ? WHERE idImage = ?");
         $cmd->bindValue(1, $data['image']);
-        $cmd->bindValue(1, $idImage);
+        $cmd->bindValue(2, $idImage);
         echo $cmd->queryString;
         $cmd->execute();
 

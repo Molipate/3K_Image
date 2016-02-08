@@ -6,6 +6,7 @@ class Admin{
     private $instanceOfCategorie;
     private $instanceOfMembre;
     private $instanceOfAsso;
+    private $instanceOfProjet;
 
     //DONE
     public function __construct(){
@@ -13,10 +14,12 @@ class Admin{
         require_once("models/categorie_m.php");
         require_once("models/membre_m.php");
         require_once("models/asso_m.php");
+        require_once("models/projet_m.php");
         $this->instanceOfVideo = new Video_m();
         $this->instanceOfCategorie = new Categorie_m();
         $this->instanceOfMembre = new Membre_m();
         $this->instanceOfAsso = new Asso_m();
+        $this->instanceOfProjet = new Projet_m();
     }
     //DONE
     public function checkDroit(){
@@ -72,7 +75,7 @@ class Admin{
         $data['categorie'] = htmlentities($_POST['categorie']);
         $data['description'] = htmlentities($_POST['description']);
         $this->instanceOfVideo->insert($data);
-        header("location: ".BASE_URL."index.php/admin/index");
+        header("location: ".BASE_URL."index.php/admin/video");
     }
     //DONE
     public function categorie(){
@@ -140,7 +143,7 @@ class Admin{
         include("views/admin/form/form_modifier_categorie.php");
         include("views/admin/foot_v.php");
     }
-
+    //TODO: can't update image
     public function validFormModifierCategorie($id){
         $this->checkDroit();
         $errors = array();
@@ -177,7 +180,7 @@ class Admin{
             }
         }
     }
-
+    //DONE
     public function supprCategorie($id){
         $this->instanceOfCategorie->delete($id);
         header("location: ".BASE_URL."index.php/admin/categorie");
@@ -291,21 +294,16 @@ class Admin{
     }
 
     public function projet(){
+
+        $data = $this->instanceOfProjet->getAll();
+
         include("views/admin/head_v.php");
         include("views/admin/nav_v.php");
         include("views/admin/projet_v.php");
         include("views/admin/foot_v.php");
     }
 
-    public function ajouterProjet(){
 
-        $data = $this->instanceOfCategorie->getAllCategorie();
-
-        include("views/admin/head_v.php");
-        include("views/admin/nav_v.php");
-        include("views/admin/form/form_ajouter_projet.php");
-        include("views/admin/foot_v.php");
-    }
 
     public function modifierProjet($id){
 

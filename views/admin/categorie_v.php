@@ -14,8 +14,8 @@
         foreach($data as $c){
             echo '<img src="'.BASE_IMG.$c['linkImage'].'">';
             echo $c['nomCategorie'];
-            echo '<a href="'.BASE_URL.'index.php/admin/modifierCategorie/'.$c['idCategorie'].'">
-                <img src="'.BASE_IMG.'edit.png" alt=""></a>';
+            echo '<a href="'.BASE_URL.'index.php/admin/modifierCategorie/'.$c['idCategorie'].'">//
+                <img src="'.BASE_IMG.'edit.png" alt="">//</a>';
             echo '<a href="'.BASE_URL.'index.php/admin/supprCategorie/'.$c['idCategorie'].'">
                 <img src="'.BASE_IMG.'supp.png" alt=""></a><hr>';
         }

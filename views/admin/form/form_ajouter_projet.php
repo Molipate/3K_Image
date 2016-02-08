@@ -1,6 +1,6 @@
 <h1 class="large-text-center">Ajouter un projet</h1>
 <?php
-if($data != NULL){
+if($data == NULL){
     echo '<br/><br><br><br><small class="error large-text-center" style="font-size: 25px;">
         Pour ajouter une vidéo, vous devez en premier lieu ajouter une catégorie ...
 </small>';
@@ -8,7 +8,7 @@ if($data != NULL){
 else { ?>
     <div class="row">
         <div class="panel">
-            <form action="<?= BASE_URL ?>index.php/admin/ajouterProjet" method="post">
+            <form action="<?= BASE_URL ?>index.php/projet/validFormAjouterProjet" method="post">
                 <label for="titre">Titre du projet : </label>
                 <input type="text" name="titre" id="titre">
 
