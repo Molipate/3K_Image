@@ -3,12 +3,12 @@
         <?php if(!empty($video)){
             foreach($video as $v){ ?>
                 <a href="<?=BASE_URL?>index.php/video/video/<?=$v['idVideo']?>"><div class="video_head">
-                    <img src="<?=BASE_IMG.$v['link_image']?>">
-                    <p style="font-weight: bold;"><?=$v['titreVideo']?></p><p> - <?=$v['dateSortie']?></p>
+                    <img src="<?=BASE_IMG.$v['linkImage']?>">
+                    <p style="font-weight: bold;"><?=$v['titreVideo']?></p><p> - <?=$v['dateVideo']?></p>
                 </div><hr>
                 <div class="video_body">
                     <?=$this->makeVideo($v['linkVideo'], 512)?>
-                    <p><?=$v['description']?></p>
+                    <p><?=$v['text']?></p>
                 </div></a><br><br><br><br>
            <?php }
         } else {

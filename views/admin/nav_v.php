@@ -7,13 +7,15 @@
             <a href="#"><span>Menu</span></a>
         </li>
     </ul>
+
     <section class="top-bar-section">
         <ul class="left">
             <li class="divider"></li>
-            <li><a href="<?=BASE_URL?>index.php/admin/ajouterVideo">Ajouter une vidéo</a></li>
-            <li><a href="<?=BASE_URL?>index.php/admin/ajouterCategorie">Ajouter une catégorie</a></li>
-            <li><a href="<?=BASE_URL?>index.php/admin/membre">Page des membres</a></li>
-            <li><a href="<?=BASE_URL?>index.php/admin/association">Page de l'association</a></li>
+            <li><a href="<?=BASE_URL?>index.php/admin/video">Les vidéos</a></li>
+            <li><a href="<?=BASE_URL?>index.php/admin/categorie">Les catégories</a></li>
+            <li><a href="<?=BASE_URL?>index.php/admin/membre">Les membres</a></li>
+            <li><a href="<?=BASE_URL?>index.php/admin/association">L'association</a></li>
+            <li><a href="<?=BASE_URL?>index.php/admin/projet">Les projets</a></li>
         </ul>
         <ul class="right">
             <li class="active"><a href="<?php echo BASE_URL; ?>index.php/video/index">Retourner au site</a></li>

@@ -42,7 +42,7 @@ class Video{
 
     public function video($id){
         $v = $this->instanceOfVideo->getVideo($id);
-
+        $title = $v['titreVideo'];
         include("views/head_v.php");
         include("views/nav_v.php");
         include("views/video/video_v.php");

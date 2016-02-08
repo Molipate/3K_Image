@@ -1,7 +1,7 @@
 <h1 class="large-text-center">Modifier une catégorie</h1>
 <div class="row">
     <div class="panel">
-        <form action="<?=BASE_URL?>index.php/admin/validFormModifierCategorie" method="post" enctype="multipart/form-data">
+        <form action="<?=BASE_URL?>index.php/admin/validFormModifierCategorie/<?=$data['idCateogie']?>" method="post" enctype="multipart/form-data">
 
             <label for="titre">Nom : </label>
             <input type="text" name="titre" id="titre" value="<?= $data['nomCategorie'];?>">

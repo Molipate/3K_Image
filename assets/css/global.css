@@ -94,15 +94,23 @@ label {
     position: absolute;
     right: 0px;
 }
+.subscribe {
+    position: absolute;
+    display: inline;
+}
 .titre_video {
-    font-size: 48px;
-    display: inline-block;
+    font-size: 36px;
+    display: block;
     vertical-align: top;
 }
 .img_video {
     height: 150px;
     width:auto;
-    display: inline-block;
+    display: inline;
+}
+.button_s{
+    position: absolute;
+    top: 75px;
 }
 .video_video {
     position: relative;

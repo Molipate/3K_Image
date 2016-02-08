@@ -13,6 +13,7 @@ CREATE TABLE image(
 CREATE TABLE text(
   idText INT AUTO_INCREMENT,
   text TEXT,
+  descText ENUM('video', 'membre', 'asso'),
   PRIMARY KEY(idText)
 ) ENGINE = InnoDB;
 
@@ -21,7 +22,7 @@ CREATE TABLE categorie(
   nomCategorie VARCHAR(30),
   imageCategorie INT NOT NULL,
   PRIMARY KEY(idCategorie),
-  CONSTRAINT fk_imageCategorie FOREIGN KEY(imageCategorie) REFERENCES image(idImage)
+  CONSTRAINT fk_imageCategorie FOREIGN KEY(imageCategorie) REFERENCES image(idImage) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
 CREATE TABLE video(
@@ -45,4 +46,14 @@ CREATE TABLE membre(
   PRIMARY KEY(idMembre),
   CONSTRAINT fk_photoMembre FOREIGN KEY(photoMembre) REFERENCES image(idImage),
   CONSTRAINT fk_descriptionMembre FOREIGN KEY(descriptionMembre) REFERENCES text(idText)
+) ENGINE = InnoDB;
+
+CREATE TABLE projet (
+  idProjet INT AUTO_INCREMENT,
+  titreProjet VARCHAR(150),
+  categorieProjet INT NOT NULL,
+  descriptionProjet INT NOT NULL,
+  PRIMARY KEY(idProjet),
+  CONSTRAINT  fk_categorieProjet FOREIGN KEY(categorieProjet) REFERENCES categorie(idCategorie),
+  CONSTRAINT  fk_descriptionProjet FOREIGN KEY(descriptionProjet) REFERENCES text(idText)
 ) ENGINE = InnoDB;

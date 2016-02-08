@@ -39,24 +39,36 @@ class Video_m{
         $cmd->execute();
         return $cmd->fetchAll();
     }
-
+    //MUST TEST IT
     public function getVideo($id){
-        $cmd = $this->base->prepare("SELECT v.titreVideo, v.linkVideo, v.description,
-          v.dateSortie, c.nomCategorie, c.link_image
-          FROM video v, categorie c WHERE v.categorieVideo = c.idCategorie AND v.idVideo = ?");
+        $cmd = $this->base->prepare("
+          SELECT v.titreVideo, v.linkVideo, v.dateVideo,
+          t.text, c.nomCategorie, i.linkImage
+          FROM video v, categorie c, image i, text t
+          WHERE v.categorieVideo = c.idCategorie
+          AND c.imageCategorie = i.idImage
+          AND v.descriptionVideo = t.idText
+          AND v.idVideo = ?");
         $cmd->bindValue(1, $id);
         $cmd->execute();
         return $cmd->fetch();
     }
 
     public function insert($data){
-        $cmd = $this->base->prepare("INSERT INTO video (titreVideo, linkVideo, description, dateSortie, categorieVideo)
+
+        $cmd = $this->base->prepare("INSERT INTO text (text) VALUES (?)");
+        $cmd->bindValue(1, $data['description']);
+        $cmd->execute();
+        $idText = $this->base->lastInsertId();
+
+        $cmd = $this->base->prepare("
+          INSERT INTO video (titreVideo, linkVideo, dateVideo, categorieVideo, descriptionVideo)
           VALUES (?, ?, ?, ?, ?)");
         $cmd->bindValue(1, $data['titre']);
         $cmd->bindValue(2, $data['link']);
-        $cmd->bindValue(3, $data['description']);
-        $cmd->bindValue(4, $data['date']);
-        $cmd->bindValue(5, $data['categorie']);
+        $cmd->bindValue(3, $data['date']);
+        $cmd->bindValue(4, $data['categorie']);
+        $cmd->bindValue(5, $idText);
         $cmd->execute();
     }
 

@@ -3,7 +3,7 @@
     <div class="panel">
         <form action="<?=BASE_URL?>index.php/admin/modifierAssociation" method="post">
             <label for="text">Texte de la page : </label>
-            <textarea rows="10" cols="2" name="text" id="text"></textarea>
+            <textarea rows="10" cols="2" name="text" id="text"><?=$text['text']?></textarea>
             <button>Ajouter !</button>
         </form>
     </div>

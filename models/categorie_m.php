@@ -44,7 +44,28 @@ class Categorie_m{
         $cmd->execute();
     }
 
-    public function update($data){
+    public function update($id, $data){
+
+        $cmd = $this->base->prepare("UPDATE categorie SET nomCategorie = ? WHERE idCategorie = ?");
+        $cmd->bindValue(1, $data['titre']);
+        $cmd->bindValue(2, $id);
+        $cmd->execute();
+
+        $cmd = $this->base->prepare("
+          SELECT i.idImage
+          FROM image i, categorie c
+          WHERE c.imageCategorie = i.idImage
+          AND c.idCategorie = ?");
+        $cmd->bindValue(1, $id);
+        $cmd->execute();
+        $idImage = $cmd->fetch();
+        echo $idImage;
+
+        $cmd = $this->base->prepare("UPDATE image SET linkImage = ? WHERE idImage = ?");
+        $cmd->bindValue(1, $data['image']);
+        $cmd->bindValue(1, $idImage);
+        echo $cmd->queryString;
+        $cmd->execute();
 
     }
     //Check for foreign k
